@@ -1,0 +1,2 @@
+# NoteWithLinq
+Using Linq Methods
