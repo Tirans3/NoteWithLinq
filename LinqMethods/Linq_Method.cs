@@ -11,17 +11,17 @@ namespace LinqMethods
         // Enumerable.Aggregate Method have three overloads
 
         // 1.In  MyAggrFuncforSum method I will show how is work Aggregate<TSource>(this IEnumerable<TSource>, Func<TSource,TSource,TSource>) overload:
-        //   There we will calculate sum  of elements  sourse :
-        public static int MyAggrFuncforSum(IEnumerable<int> sourse)
+        //   There we will calculate subtraction of elements  sourse :
+        public static int MyAggrFuncforSub(IEnumerable<int> sourse)
         {
 
             if (sourse == null)
                 throw new ArgumentNullException();
             if (sourse.Count() == 0)
                 throw new InvalidOperationException();
-            return sourse.Aggregate((a, b) => a + b);
-            // 1.a=sourse[0] , b = sourse[1] and reszult = sourse[0] + sourse[1];
-            // 2.a=reszult, b=sourse[3] and reszult = a + sourse[3];
+            return sourse.Aggregate((a, b) => a - b);
+            // 1.a=sourse[0] , b = sourse[1] and reszult = sourse[0] - sourse[1];
+            // 2.a=reszult, b=sourse[3] and reszult = a - sourse[3];
             //   ..................................................
         }
 
@@ -48,11 +48,41 @@ namespace LinqMethods
         {
             if (sourse == null)
                 throw new ArgumentNullException();
+            if (sourse == null)
+                throw new ArgumentNullException("null reference");
           return sourse.Aggregate(0, (a, b) => b > 0 ? ++a : a, c => c == sourse.Count() ? "All elements are positive " : c == 0 ? "All elemrnets are negative" : "There are mixed numbers");
             // 1. a=0,b=sourse[0] and a will incrimented if b>0
             // 2. a=sourse[0]>0 ? ++a : a ;
             //        .....................
             // At last c=a,and reszult equal in this expression  c => c == sourse.Count() ? .....
         }
+
+        //Enumerable.All Method
+        //  . This method return whether all elements of sourse are big than b:
+        
+        public static bool MyAggFuncAll(int b,IEnumerable<int> sourse)
+        {
+            if (sourse == null)
+                throw new ArgumentNullException();
+             if (sourse.Count() == 0)
+                throw new InvalidOperationException();
+            return sourse.All(s=>s>b);
+
+        }  
+       // Enumerable.All Method
+       //  . There  used two overload  of method
+       
+            public static bool MyAggFuncAny(int first,int last, IEnumerable<int> sourse)
+            {
+               if (sourse == null)
+               throw new ArgumentNullException();
+
+               if (!sourse.Any())
+                 throw new InvalidOperationException();
+             
+                 return sourse.Any(s=> s > first && s < last);
+            }
+
     }
+
 }

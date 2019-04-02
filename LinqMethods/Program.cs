@@ -10,11 +10,13 @@ namespace LinqMethods
     {
         static void Main(string[] args)
         {
-            int[] ints = { 4, 8,5,6,4,9,12,36,9,0,-7,6 };
-            Console.WriteLine(Linq_Method.MyAggFuncforState(ints));
-            Console.WriteLine($"The multipli of 4 in ints is {Linq_Method.MyAggrFuncforMultCount(4,ints)}");
-            Console.WriteLine($"The sum of ints is {Linq_Method.MyAggrFuncforSum(ints)}");
-
+            int[] ints = { 4,6,9,1,0,8,69,3,2,0,4,-56 };
+            Console.WriteLine($"1 . Inform about state  '{Linq_Method.MyAggFuncforState(ints)}'");
+            Console.WriteLine($"2 . The multipli of 4 in ints is {Linq_Method.MyAggrFuncforMultCount(4,ints)}");
+            Console.WriteLine($"3 . The subtraction of ints is {Linq_Method.MyAggrFuncforSub(ints)}");
+            Console.WriteLine("4 . All elements of ints are {0} than 10",(Linq_Method.MyAggFuncAll(10,ints)?"big":"less"));
+            Console.WriteLine("5 . ints {0} element in (1,10)" ,(Linq_Method.MyAggFuncAny(1,10,ints))?"have":"havn't");
+            Console.ReadLine();
         }
     }
 }
