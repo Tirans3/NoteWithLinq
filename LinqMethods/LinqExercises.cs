@@ -47,7 +47,7 @@ namespace LinqMethods
             return b;
         }
          
-         //  Exercisese 2
+         //  Exercisese 3
          //    Write a program in C# Sharp to display the
          //    number and frequency of number from giving array.
 
@@ -66,6 +66,24 @@ namespace LinqMethods
 
             return b;
 
+        }
+
+        //  Exercisese 4
+        //     Write a program in C# Sharp to find the string
+        //     which starts and ends with a specific character.
+
+        public static IEnumerable<string> StartEndString(IEnumerable<string> a,char start,char end)
+        {
+
+            var result = from x in a
+                          where x.StartsWith(start.ToString())
+                          where x.EndsWith(end.ToString())
+                          select x;
+
+            // By extension methods
+
+            var c = a.Where(x => x.StartsWith(start.ToString()) && x.EndsWith(end.ToString()));
+            return c;
         }
     }
 }
