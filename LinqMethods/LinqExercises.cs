@@ -46,5 +46,26 @@ namespace LinqMethods
 
             return b;
         }
+         
+         //  Exercisese 2
+         //    Write a program in C# Sharp to display the
+         //    number and frequency of number from giving array.
+
+        public static IEnumerable<IGrouping<int,int>> Groupitem(IEnumerable<int> a)
+        {
+            var n = from x in a
+                    group x by x into y
+                    select y;
+            // or
+            var m = from x in a
+                    group x by x;
+
+            // By extension methods
+
+            var b = a.GroupBy(x => x);
+
+            return b;
+
+        }
     }
 }
